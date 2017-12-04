@@ -33,10 +33,11 @@
     InputMark.prototype.addEvent = function (inputDom, markDom) {
         markDom.onclick = function (e) {
             inputDom.focus()
-            markDom.style.display = 'none'
         }
+        inputDom.onfocus = function (e) {
+            markDom.style.display = 'none'
+        } 
         inputDom.onblur = function (e) {
-            console.log(1)
             var val = this.value
             if (val === '') {
                 markDom.style.display = 'block'
